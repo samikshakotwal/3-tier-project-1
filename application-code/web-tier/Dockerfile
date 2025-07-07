@@ -1,5 +1,5 @@
 # Stage 1: Build the React app
-FROM node:18 AS builder
+FROM FROM public.ecr.aws/docker/library/node:18
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
