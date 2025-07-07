@@ -16,6 +16,8 @@ phases:
 
       - sudo systemctl enable nginx
 
+      - sudo rm /etc/nginx/nginx.conf
+
       - sudo cp ./application-code/web-tier/nginx.conf /etc/nginx/
 
       - docker build -t frontend-image ./application-code/web-tier
