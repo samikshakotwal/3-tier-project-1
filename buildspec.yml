@@ -3,25 +3,24 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      docker: 20
     commands:
-      - echo Installing frontend dependencies...
-      - cd application-code/web-tier
-      - npm install
-      - cd ../../application-code/app-tier
-      - echo Installing backend dependencies...
-      - npm install
+      - echo "Installing Docker dependencies..."
+      - echo "Starting Docker build for frontend..."
+      - docker build -t web-img ./application-code/web-tier
+      - echo "Starting Docker build for backend..."
+      - docker build -t app-img ./application-code/app-tier
 
   build:
     commands:
-      - echo Building frontend...
-      - cd ../../application-code/web-tier
-      - npm run build
-      - echo Build complete.
+      - echo "Running Docker containers..."
+      - docker run -d --name frontend-container -p 81:80 web-img
+      - docker run -d --name backend-container -p 4000:4000 app-img
+      - echo "Build and containers started successfully."
 
 artifacts:
   files:
     - appspec.yml
     - scripts/*
-    - application-code/web-tier/build//*
-    - application-code/app-tier//*
+    - application-code/web-tier/Dockerfile
+    - application-code/app-tier/Dockerfile
