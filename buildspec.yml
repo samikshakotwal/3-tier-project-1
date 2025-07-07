@@ -10,16 +10,6 @@ phases:
 
       - echo "Installing frontend and backend via Docker builds..."
 
-      - sudo yum install nginx -y
-
-      - sudo systemctl start nginx
-
-      - sudo systemctl enable nginx
-
-      - sudo rm /etc/nginx/nginx.conf
-
-      - sudo cp ./application-code/web-tier/nginx.conf /etc/nginx/
-
       - docker build -t frontend-image ./application-code/web-tier
 
       - docker build -t backend-image ./application-code/app-tier
