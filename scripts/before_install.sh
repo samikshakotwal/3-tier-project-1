@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo yum install nginx -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-rm -rf /var/www/react-app/*
+sudo apt update -y
+sudo apt install nginx -y
+sudo systemctl stop nginx
