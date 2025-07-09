@@ -8,7 +8,9 @@ files:
     destination: /var/www/backend-app
   - source: application-code/web-tier/nginx.conf
     destination: /etc/nginx/nginx.conf
-
+  - source: scripts
+    destination: /home/ubuntu/scripts
+    
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
