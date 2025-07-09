@@ -3,7 +3,7 @@
 
 sudo apt-get update -y
 sudo apt install nginx -y
-sudo apt install docker -y
+sudo apt install docker.io -y
 sudo apt install git -y
 
 sudo systemctl start nginx
