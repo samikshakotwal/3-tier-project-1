@@ -17,3 +17,8 @@ sudo cp ./application-code/web-tier/nginx.conf /etc/nginx/
 
 echo "Reloading nginx..."
 sudo systemctl reload nginx
+
+# Make all .sh files executable
+chmod +x /home/ubuntu/scripts/*.sh
+
+echo "Permissions set for all .sh files"
