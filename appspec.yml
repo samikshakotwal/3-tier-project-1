@@ -2,12 +2,12 @@ version: 0.0
 os: linux
 
 files:
-  - source: application-code/web-tier/build
+  - source: application-code/web-tier
     destination: /var/www/react-app
-  - source: application-code/backend-tier
+  - source: application-code/app-tier
     destination: /var/www/backend-app
-  - source: application-code/nginx/custom-nginx.conf
-    destination: /etc/nginx/sites-available/react-backend
+  - source: application-code/web-tier/nginx.conf
+    destination: /etc/nginx/nginx.conf
 
 hooks:
   BeforeInstall:
