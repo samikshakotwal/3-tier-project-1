@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cd ./application-code/web-tier/
-sudo build -t web .
+cd /home/ubuntu/application-code/web-tier/
+sudo docker build -t web .
 
 cd ./application-code/app-tier/
-sudo build -t app .
+sudo docker build -t app .
