@@ -1,13 +1,19 @@
 #!/bin/bash
 
-echo "Linking custom nginx config..."
-sudo ln -sf /etc/nginx/sites-available/react-backend /etc/nginx/sites-enabled/react-backend
+
+sudo apt-get update -y
+sudo apt install nginx -y
+sudo apt install docker -y
+sudo apt install git -y
+
+sudo systemctl start nginx
+sudo systemctl start docker
+
 
 # Optional: Remove default config if needed
-sudo rm -f /etc/nginx/sites-enabled/default
+sudo rm -f /etc/nginx/nginx.conf
 
-echo "Testing nginx config..."
-sudo nginx -t
+sudo cp ./application-code/web-tier/nginx.conf /etc/nginx/
 
 echo "Reloading nginx..."
 sudo systemctl reload nginx
