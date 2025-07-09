@@ -1,4 +1,3 @@
 #!/bin/bash
-sudo apt update -y
-sudo apt install nginx -y
-sudo systemctl stop nginx
+cd /home/ubuntu/3-tier-project-1
+npm install
